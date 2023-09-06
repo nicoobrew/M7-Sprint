@@ -1,0 +1,83 @@
+{% extends "tareas/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row align-items-center justify-content-center text-decoration-a" style="height: 100vh;">
+    <div class="col-12 text-center">
+      <div class="texto-index">
+        <p id="dynamic-info"
+          style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 60px; font-weight: 600; color: white;">
+          Gestiona tus tareas en la palma de tu mano 📱</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carrusel -->
+<section>
+  <div id="carouselBasicExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <!-- Contenido de las imágenes -->
+    <div class="carousel-inner">
+      <!-- Imagen 1 -->
+      <div class="carousel-item active ">
+        <img src="{% static 'tareas/img/slide1.svg' %}" class="d-block w-100" alt="Sunset Over the City">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <!-- Imagen 2 -->
+      <div class="carousel-item">
+        <img src="{% static 'tareas/img/slide2.jpg' %}" class="d-block w-100" alt="">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <!-- Imagen 3 -->
+      <div class="carousel-item">
+        <img src="{% static 'tareas/img/slide3.jpg' %}" class="d-block w-100" alt="">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+</section>
+
+<div class="container-fluid">
+  <div class="row align-items-center justify-content-center text-decoration-a" style="height: 100vh;">
+    <div class="col-12 text-center">
+      <div class="texto-index">
+        <p style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 60px; font-weight: 600; color: white;">
+          ¡Comienza hoy!</p>
+        <a href="{% url 'users:registro' %}" class="btn button-index">Registrate aqui</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Funcion js para contenido dinamico en el inicio de la pagina -->
+<script>
+  // Funcion para actualizar la información dinámica en el navbar
+  function updateDynamicInfo() {
+    const messages = [
+      "Gestiona tus tareas en la palma de tu mano 📱",
+      "Olvidate del planner en papel 📝",
+      "y dale la bienvenida al futuro 💻",
+      "El futuro es hoy, oiste"
+    ];
+
+    const dynamicInfo = document.getElementById("dynamic-info");
+    let currentIndex = 0;
+
+    function updateMessage() {
+      dynamicInfo.textContent = messages[currentIndex];
+      currentIndex = (currentIndex + 1) % messages.length;
+    }
+    updateMessage();
+    setInterval(updateMessage, 6000);
+  }
+
+  window.onload = updateDynamicInfo;
+
+</script>
+
+
+{% endblock %}

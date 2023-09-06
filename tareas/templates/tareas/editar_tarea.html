@@ -1,0 +1,32 @@
+{% extends "tareas/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <h2>Editar Tarea</h2>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              <a href="{% url 'tareas:ver-tarea' tarea.id %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

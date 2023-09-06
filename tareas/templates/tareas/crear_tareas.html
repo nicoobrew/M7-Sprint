@@ -1,0 +1,35 @@
+{% extends "tareas/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="text-center mt-2">
+          <h2>Crear Tarea</h2>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="mt-2 text-center">
+              <button type="submit" class="btn boton-ver-tarea">Guardar Tarea</button>
+            </div>
+          </form>
+
+          <div class="mt-2 text-center">
+            <a type="submit" class="btn " href="{% url 'tareas:tareas-pendientes' %}">
+              << volver atrás</a>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+/* Slider */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    padding: 0;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    max-height: 600px;
+    height: auto;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.slide-content h1 {
+    font-size: 50px;
+}
+
+/* Columnas body */
+.square-column {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+
+    cursor: pointer;
+}
+
+.square-column:hover {
+    background-color: #5271FF;
+}
+
+.custom-link {
+    display: block;
+    padding: 20px;
+    background-color: inherit;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+#crear-tareas:hover .custom-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#gestionar-tareas:hover .custom-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.text-decoration-a a {
+    text-decoration: none;
+}
+
+.texto-index {
+    font-size: 24px;
+    color: white;
+}
+
+/* Estilos para el footer */
+footer {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #5271FF, #FFE052);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.boton-ver-tarea {
+    background-color: #5271FF;
+    width: 20vh;
+    color: white;
+}
+
+.columna-div {
+    height: 63vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.columna-div-index {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.columna-color {
+    background-color: white;
+}
+
+.button-index {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: 2px solid;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 50px;
+    width: 200px;
+    position: relative;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.button-index:hover {
+    border-color: #ffffff;
+    background-color: white;
+    color: black;
+}
+
+.prioridad-baja {
+    background-color: verde;
+}
+
+.prioridad-media {
+    background-color: amarillo;
+}
+
+.prioridad-alta {
+    background-color: rojo;
+}

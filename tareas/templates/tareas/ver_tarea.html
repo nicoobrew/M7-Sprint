@@ -1,0 +1,41 @@
+{% extends "tareas/base.html" %}
+{% load static %}
+{% block title %}<title>Tasks: {{ tarea.titulo }}</title>{% endblock %}
+{% block content %}
+
+
+<div class="container mb-5 mt-5">
+  <div class="row columna-div">
+    
+    <div class="col-12 ">
+      <div class="card">
+        <div class="col-12 mb-5">
+          {% if not tarea_completada %}
+          <a href="{% url 'tareas:editar-tarea' tarea.id %}" class="btn boton-ver-tarea">Editar</a>
+          <a href="{% url 'tareas:eliminar-tarea' tarea.id %}" class="btn boton-ver-tarea">Eliminar</a>
+          <a href="{% url 'tareas:completar-tarea' tarea.id %}" class="btn boton-ver-tarea">Completar</a>
+          {% endif %}
+    
+          <a href="{% url 'tareas:tareas-pendientes' %}" class="btn boton-ver-tarea">Retornar</a>
+        </div>
+        <div class="card-body {% if tarea.prioridad == 'baja' %}prioridad-baja{% elif tarea.prioridad == 'media' %}prioridad-media{% elif tarea.prioridad == 'alta' %}prioridad-alta{% endif %}">
+          <p class="card-text">Prioridad: {{ tarea.prioridad }}</p>
+      </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ tarea.titulo }}</h3> 
+          <p class="card-text">Descripción: {{ tarea.descripcion }}</p>
+          <p class="card-text">Fecha de Vencimiento: {{ tarea.fecha_vencimiento }}</p>
+          <p class="card-text">Estado: {{ tarea.estado }}</p>
+          <p class="card-text">Observaciones: {{ tarea.observaciones }}</p>
+        </div>
+       
+        
+      </div>
+      
+    </div>
+    
+    
+  </div>
+</div>
+
+{% endblock %}
